@@ -15,15 +15,16 @@ Run **Qwen2.5-7B-Instruct** (inference) and **BAAI/bge-m3** (embeddings) with vL
 ```bash
 sudo docker compose down
 sudo docker compose up -d
-sudo docker logs -f ubuntu-gpu-vllm-inference-embed-inference-1
-sudo docker logs -f ubuntu-gpu-vllm-inference-embed-embeddings-1
-
+sudo docker logs -f vllm-inference
+sudo docker logs -f vllm-embeddings
 ```
 
 **API endpoints**
 
 - Inference: `http://localhost:8000/v1/completions`, `http://localhost:8000/v1/chat/completions`
 - Embeddings: `http://localhost:8001/v1/embeddings`
+
+**Logs:** `docker compose logs -f inference` or `docker compose logs -f embeddings`
 
 **Logs:** `docker compose logs -f inference` or `docker compose logs -f embeddings`
 

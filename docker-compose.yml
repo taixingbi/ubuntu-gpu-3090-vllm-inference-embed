@@ -1,5 +1,6 @@
 services:
   inference:
+    container_name: vllm-inference
     image: vllm/vllm-openai:latest
     ports:
       - "8000:8000"
@@ -9,6 +10,7 @@ services:
       --port 8000
       --gpu-memory-utilization 0.8
       --max-model-len 16384
+      --max-num-seqs 50
     deploy:
       resources:
         reservations:
@@ -23,6 +25,7 @@ services:
       - HUGGING_FACE_HUB_TOKEN=${HUGGING_FACE_HUB_TOKEN:-}
 
   embeddings:
+    container_name: vllm-embeddings
     image: vllm/vllm-openai:latest
     ports:
       - "8001:8001"
@@ -30,7 +33,7 @@ services:
       --model BAAI/bge-m3
       --host 0.0.0.0
       --port 8001
-      --gpu-memory-utilization 0.2
+      --gpu-memory-utilization 0.1
       --max-model-len 8192
     deploy:
       resources:
