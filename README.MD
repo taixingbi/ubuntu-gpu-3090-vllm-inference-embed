@@ -25,7 +25,7 @@ docker compose up -d
 Chat completion:
 
 ```bash
-curl http://SERVER_IP:8000/v1/chat/completions \
+curl http://192.168.86.173:8000/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{"model":"Qwen/Qwen2.5-7B-Instruct","messages":[{"role":"user","content":"Hello"}],"max_tokens":32}'
 ```
@@ -33,7 +33,7 @@ curl http://SERVER_IP:8000/v1/chat/completions \
 Embeddings:
 
 ```bash
-curl http://SERVER_IP:8001/v1/embeddings \
+curl http://192.168.86.173:8001/v1/embeddings \
   -H "Content-Type: application/json" \
   -d '{"model":"BAAI/bge-m3","input":"Hello"}'
 ```
