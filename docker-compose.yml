@@ -2,6 +2,7 @@ services:
   inference:
     container_name: vllm-inference
     image: vllm/vllm-openai:latest
+    restart: unless-stopped
     ports:
       - "8000:8000"
     command: >
@@ -27,6 +28,7 @@ services:
   embeddings:
     container_name: vllm-embeddings
     image: vllm/vllm-openai:latest
+    restart: unless-stopped
     ports:
       - "8001:8001"
     command: >
